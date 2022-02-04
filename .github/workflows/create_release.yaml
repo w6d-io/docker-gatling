@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged && ( startsWith(github.head_ref, 'release/') || startsWith(github.head_ref, 'feature/') )
+    if: github.event.pull_request.merged
     steps:
       - uses: actions/checkout@master
       - name: Tag and prepare release
@@ -58,7 +58,7 @@ jobs:
             BUILD_DATE=${{ steps.build_var.outputs.BUILD_DATE }}
             PROJECT_URL=${{ steps.build_var.outputs.PROJECT_URL }}
           tags: |
-            w6dio/docker-gatling:${{ steps.tag_and_prepare_release.outputs.tag }}
+            w6dio/gatling:${{ steps.tag_and_prepare_release.outputs.tag }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
