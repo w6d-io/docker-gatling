@@ -23,6 +23,7 @@ RUN export PATH="/usr/local/sbt/bin:$PATH" \
     gnupg                      \
     git                        \
     curl                       \
+    jq                         \
     && rm -rf /var/cache/apk/* \
     && mkdir -p "/usr/local/sbt" \
     && wget -qO - --no-check-certificate "https://github.com/sbt/sbt/releases/download/v1.6.1/sbt-1.6.1.tgz" | tar xz -C /usr/local/sbt --strip-components=1 \
